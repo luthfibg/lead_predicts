@@ -5,8 +5,8 @@ import numpy as np
 import json
 
 # Load the trained model and scaler
-model = joblib.load('models/model_xgboost.pkl')
-scaler = joblib.load('models/scaler.pkl')
+model = joblib.load('model/model_xgboost.pkl')
+scaler = joblib.load('model/scaler.pkl')
 
 # Streamlit UI for input collection
 st.title("Lead Data Classification with XGBoost")
