@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import joblib
 import pandas as pd
 from pydantic import BaseModel
+import os
 
 # Inisialisasi aplikasi FastAPI
 app = FastAPI()
@@ -16,9 +17,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Load model dan scaler yang telah dilatih
-model = joblib.load('./app/model_xgboost.pkl')
-scaler = joblib.load('./app/scaler.pkl')
+# Menentukan path absolut untuk model dan scaler
+model_path = os.path.join(os.getcwd(), 'app', 'model_xgboost.pkl')
+scaler_path = os.path.join(os.getcwd(), 'app', 'scaler.pkl')
+
+# Load model dan scaler
+model = joblib.load(model_path)
+scaler = joblib.load(scaler_path)
 
 # Schema data input untuk validasi request
 class LeadData(BaseModel):
