@@ -17,8 +17,8 @@ app.add_middleware(
 )
 
 # Load model dan scaler yang telah dilatih
-model = joblib.load('./model_xgboost.pkl')
-scaler = joblib.load('./scaler.pkl')
+model = joblib.load('./app/model_xgboost.pkl')
+scaler = joblib.load('./app/scaler.pkl')
 
 # Schema data input untuk validasi request
 class LeadData(BaseModel):
